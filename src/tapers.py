@@ -1,6 +1,5 @@
 import gdsfactory  as gf
 
-
 # ---Definition of the Taper Parameters---#
 taper_length = 300 # micras
 wg_width_1 = 3 # micras
@@ -15,3 +14,4 @@ c.draw_ports()
 c.pprint_ports()
 c.plot()
 c.show() # abrir en klayout
+
