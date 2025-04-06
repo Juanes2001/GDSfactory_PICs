@@ -4,7 +4,14 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="92cc6d94-06f9-4a89-8657-29131f7ab573" name="Changes" comment="c" />
+    <list default="true" id="92cc6d94-06f9-4a89-8657-29131f7ab573" name="Changes" comment="c">
+      <change beforePath="$PROJECT_DIR$/.idea/GDSfactory_PICs.iml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/GDSfactory_PICs.iml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/misc.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/misc.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/build/gds/GDS_designs.oas" beforeDir="false" afterPath="$PROJECT_DIR$/build/gds/GDS_designs.oas" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/GDS_designs.py" beforeDir="false" afterPath="$PROJECT_DIR$/src/GDS_designs.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/functions.py" beforeDir="false" afterPath="$PROJECT_DIR$/src/functions.py" afterDir="false" />
+    </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
     <option name="HIGHLIGHT_NON_ACTIVE_CHANGELIST" value="false" />
@@ -20,6 +27,18 @@
   <component name="Git.Settings">
     <option name="RECENT_GIT_ROOT_PATH" value="$PROJECT_DIR$" />
   </component>
+  <component name="GitHubPullRequestSearchHistory"><![CDATA[{
+  "lastFilter": {
+    "state": "OPEN",
+    "assignee": "Juanes2001"
+  }
+}]]></component>
+  <component name="GithubPullRequestsUISettings"><![CDATA[{
+  "selectedUrlAndAccountId": {
+    "url": "https://github.com/Juanes2001/GDSfactory_PICs.git",
+    "accountId": "efaac340-3865-4255-bdd5-1702ea4724b9"
+  }
+}]]></component>
   <component name="ProjectColorInfo">{
   &quot;associatedIndex&quot;: 8
 }</component>
@@ -32,16 +51,19 @@
   <component name="PropertiesComponent"><![CDATA[{
   "keyToString": {
     "Python.GDS_designs.executor": "Run",
+    "Python.functions.executor": "Debug",
     "Python.straight_waveguide.executor": "Run",
     "Python.tapers.executor": "Run",
     "RunOnceActivity.ShowReadmeOnStart": "true",
-    "git-widget-placeholder": "master"
+    "RunOnceActivity.git.unshallow": "true",
+    "git-widget-placeholder": "master",
+    "ignore.virus.scanning.warn.message": "true"
   }
 }]]></component>
   <component name="SharedIndexes">
     <attachedChunks>
       <set>
-        <option value="bundled-python-sdk-14705d77f0bb-aa17d162503b-com.jetbrains.pycharm.community.sharedIndexes.bundled-PC-243.25659.43" />
+        <option value="bundled-python-sdk-4f4e415b4190-aa17d162503b-com.jetbrains.pycharm.community.sharedIndexes.bundled-PC-243.26053.29" />
       </set>
     </attachedChunks>
   </component>
