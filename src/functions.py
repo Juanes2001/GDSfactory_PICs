@@ -142,6 +142,232 @@ def spiral_with_taper_and_snake(n_values, spiral_lengths, y_offset=700, chip_len
     return c
 
 
+def multiple_directional_Couplers_50_to_50_with_SBend(
+    coupler_width=0.8,
+    chip_length=11000,  # Total allowed chip length
+    margin=200,         # Safe margins
+    gap=0.5,
+    dx=10,
+    dy=4,
+    bend_s_x=10,
+    bend_s_y=4,
+    s_bend_size=(50, 30),  # S-Bend (width, height)
+    y_offset=250
+    ):
+    """
+    Generates directional couplers with correctly oriented S-Bends at input and output.
+
+    Returns:
+        gf.Component: Multiple directional couplers with properly adjusted S-Bends.
+    """
+
+    if gap < 0.4:
+        raise ValueError(f"Invalid gap: {gap} µm. Must be >= 0.4 µm.")
+
+    c = gf.Component()
+    # Example base_length (approximation)
+    base_length = 1.55 / ( 4* (1.574498017 - 1.565599018))
+
+    for idx in range(1, 4):
+        structure = gf.Component()
+        length = base_length * idx
+
+        custom_bend_s = gf.components.bend_s(
+            size=(bend_s_x, bend_s_y),
+            cross_section=gf.cross_section.strip(width=coupler_width),
+        )
+
+        coupler = structure.add_ref(
+            gf.components.coupler(
+                gap=gap,
+                length=length,
+                dy=dy,
+                dx=dx,
+                cross_section=gf.cross_section.strip(width=coupler_width),
+                allow_min_radius_violation=False,
+                bend=custom_bend_s
+            )
+        )
+
+        # Extra length in X due to the S-bend
+        s_bend_extra_length = s_bend_size[0]
+
+        total_fixed_length = (
+            2 * (1000 + 300)  # waveguides + tapers
+            + length
+            + 2 * s_bend_extra_length
+        )
+
+        usable_length = chip_length - 2 * margin
+        remaining_length = max((usable_length - total_fixed_length) / 2, 100)
+
+        #  **Upper Input Path**
+        straight1 = structure.add_ref(
+            gf.components.straight(
+                length=1000,
+                cross_section=gf.cross_section.strip(width=3.0)
+            )
+        )
+        taper1 = structure.add_ref(
+            gf.components.taper(
+                length=300,
+                width1=3.0,
+                width2=coupler_width,
+                cross_section="strip"
+            )
+        )
+        s_bend1 = structure.add_ref(
+            gf.components.bend_s(
+                size=s_bend_size,
+                cross_section=gf.cross_section.strip(width=coupler_width)
+            )
+        )
+        straight2 = structure.add_ref(
+            gf.components.straight(
+                length=remaining_length,
+                cross_section=gf.cross_section.strip(width=coupler_width)
+            )
+        )
+
+        taper1.connect("o1", straight1.ports["o2"])
+        s_bend1.connect("o1", taper1.ports["o2"])
+        straight2.connect("o1", s_bend1.ports["o2"])
+        coupler.connect("o1", straight2.ports["o2"])
+
+        #  **Lower Input Path**
+        straight3 = structure.add_ref(
+            gf.components.straight(
+                length=remaining_length,
+                cross_section=gf.cross_section.strip(width=coupler_width)
+            )
+        )
+        s_bend2 = structure.add_ref(
+            gf.components.bend_s(
+                size=s_bend_size,
+                cross_section=gf.cross_section.strip(width=coupler_width)
+            )
+        )
+        s_bend2.mirror(p1=(0, 0), p2=(0, 1))  # Mirror for correct orientation
+        taper2 = structure.add_ref(
+            gf.components.taper(
+                length=300,
+                width1=coupler_width,
+                width2=3.0,
+                cross_section="strip"
+            )
+        )
+        straight4 = structure.add_ref(
+            gf.components.straight(
+                length=1000,
+                cross_section=gf.cross_section.strip(width=3.0)
+            )
+        )
+
+        straight3.connect("o1", coupler.ports["o2"])
+        s_bend2.connect("o1", straight3.ports["o2"])
+        taper2.connect("o1", s_bend2.ports["o2"])
+        straight4.connect("o1", taper2.ports["o2"])
+
+        #  **Upper Output Path**
+        straight5 = structure.add_ref(
+            gf.components.straight(
+                length=remaining_length,
+                cross_section=gf.cross_section.strip(width=coupler_width)
+            )
+        )
+        s_bend3 = structure.add_ref(
+            gf.components.bend_s(
+                size=s_bend_size,
+                cross_section=gf.cross_section.strip(width=coupler_width)
+            )
+        )
+        s_bend3.mirror(p1=(0, 0), p2=(0, 1))
+        taper3 = structure.add_ref(
+            gf.components.taper(
+                length=300,
+                width1=coupler_width,
+                width2=3.0,
+                cross_section="strip"
+            )
+        )
+        straight6 = structure.add_ref(
+            gf.components.straight(
+                length=1000,
+                cross_section=gf.cross_section.strip(width=3.0)
+            )
+        )
+
+        straight5.connect("o1", coupler.ports["o4"])
+        s_bend3.connect("o1", straight5.ports["o2"])
+        taper3.connect("o1", s_bend3.ports["o2"])
+        straight6.connect("o1", taper3.ports["o2"])
+
+        #  **Lower Output Path**
+        straight7 = structure.add_ref(
+            gf.components.straight(
+                length=remaining_length,
+                cross_section=gf.cross_section.strip(width=coupler_width)
+            )
+        )
+        s_bend4 = structure.add_ref(
+            gf.components.bend_s(
+                size=s_bend_size,
+                cross_section=gf.cross_section.strip(width=coupler_width)
+            )
+        )
+        taper4 = structure.add_ref(
+            gf.components.taper(
+                length=300,
+                width1=coupler_width,
+                width2=3.0,
+                cross_section="strip"
+            )
+        )
+        straight8 = structure.add_ref(
+            gf.components.straight(
+                length=1000,
+                cross_section=gf.cross_section.strip(width=3.0)
+            )
+        )
+
+        straight7.connect("o1", coupler.ports["o3"])
+        s_bend4.connect("o1", straight7.ports["o2"])
+        taper4.connect("o1", s_bend4.ports["o2"])
+        straight8.connect("o1", taper4.ports["o2"])
+
+        #  **Labels**
+        text_label1 = structure.add_ref(
+            gf.components.text(
+                text="DC 50:50 with S-Bend",
+                size=50,
+                position=(straight1.xmin + 500, straight1.ymax + 150),
+                justify="left",
+                layer="WG"
+            )
+        )
+
+        text_label2 = structure.add_ref(
+            gf.components.text(
+                text="DC 50:50 with S-Bend",
+                size=50,
+                position=(straight6.xmin - 500, straight6.ymax + 150),
+                justify="left",
+                layer="WG"
+            )
+        )
+
+        #  **Assign Ports**
+        structure.add_port(name=f"o{4*idx-3}", port=straight1.ports["o1"])
+        structure.add_port(name=f"o{4*idx-2}", port=straight4.ports["o2"])
+        structure.add_port(name=f"o{4*idx-1}", port=straight8.ports["o2"])
+        structure.add_port(name=f"o{4*idx}", port=straight6.ports["o2"])
+
+        ref = c.add_ref(structure)
+        ref.move((0, idx * y_offset))
+
+    return c
+
+
 
 
 

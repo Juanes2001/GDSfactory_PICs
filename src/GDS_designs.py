@@ -38,13 +38,15 @@ import functions as fun
 # c.show()
 # c.pprint_ports()
 
-# Define `n` and `spiral_length` values to test multiple configurations
+#############################################################################
+
+# # Define `n` and `spiral_length` values to test multiple configurations
 # n_values = [3, 2, 4, 4, 4]  # Number of loops in each spiral
 # spiral_lengths = [1000, 4000, 5000, 6000, 7000]  # Different snake lengths
 #
 # # c = fun.snake_structure(3000,2,"bend_euler180", 0.8)
 #
-# c = fun.spiral_with_taper_and_snake(n_values, spiral_lengths, y_offset=500, chip_length=11000, margin=200)
+# c = fun.spiral_with_taper_and_snake(n_values, spiral_lengths)
 #
 # # Verify that the ports are visible and correctly assigned
 # c.pprint_ports()  # Display port names and locations in the console
@@ -54,7 +56,44 @@ import functions as fun
 
 
 
+def main():
+    """
+    Main function that creates a 'root' chip component and
+    places the multiple directional couplers within it.
+    """
+    # Root chip component with a custom name
+    chip = gf.Component(name="DirectionalCouplersUnal_Design_Demo")
 
+    # Variables for positioning
+    y_position = 0
+    spacing = 500  # vertical spacing between structures
+
+    # Define a helper function to add each structure to the chip
+    def add_structure(structure, name="Unnamed Structure"):
+        nonlocal y_position
+        ref = chip.add_ref(structure)
+        ref.move((0, y_position))
+        print(f"✅ Placed {name} at y = {y_position}")
+        y_position += structure.size_info.height + spacing
+
+    # Create and add the 50:50 couplers with S-Bends
+    dc_50_50 = fun.multiple_directional_Couplers_50_to_50_with_SBend()
+    add_structure(dc_50_50, "DC 50:50 with S-Bend")
+
+
+    # Show a preview if you're in a Jupyter environment that supports it
+    chip.plot()
+
+    # Write out the final GDS file
+    gds_filename = "my_dcouplers_design.gds"
+    chip.write_gds(gds_filename)
+    chip.show()
+    print(f"✅ GDS file saved as: {gds_filename}")
+
+
+# If running as a standalone script (e.g. python script.py):
+if __name__ == "__main__":
+    main()
 
 
 
