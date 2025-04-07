@@ -6,6 +6,7 @@
   <component name="ChangeListManager">
     <list default="true" id="92cc6d94-06f9-4a89-8657-29131f7ab573" name="Changes" comment="c">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/build/gds/GDS_designs.oas" beforeDir="false" afterPath="$PROJECT_DIR$/build/gds/GDS_designs.oas" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/GDS_designs.py" beforeDir="false" afterPath="$PROJECT_DIR$/src/GDS_designs.py" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/functions.py" beforeDir="false" afterPath="$PROJECT_DIR$/src/functions.py" afterDir="false" />
     </list>
@@ -36,6 +37,9 @@
     &quot;accountId&quot;: &quot;efaac340-3865-4255-bdd5-1702ea4724b9&quot;
   }
 }</component>
+  <component name="ProblemsViewState">
+    <option name="selectedTabId" value="CurrentFile" />
+  </component>
   <component name="ProjectColorInfo">{
   &quot;associatedIndex&quot;: 8
 }</component>
@@ -48,9 +52,10 @@
   <component name="PropertiesComponent">{
   &quot;keyToString&quot;: {
     &quot;Python.GDS_designs.executor&quot;: &quot;Run&quot;,
-    &quot;Python.functions.executor&quot;: &quot;Debug&quot;,
+    &quot;Python.functions.executor&quot;: &quot;Run&quot;,
     &quot;Python.straight_waveguide.executor&quot;: &quot;Run&quot;,
     &quot;Python.tapers.executor&quot;: &quot;Run&quot;,
+    &quot;Python.text.executor&quot;: &quot;Debug&quot;,
     &quot;RunOnceActivity.ShowReadmeOnStart&quot;: &quot;true&quot;,
     &quot;RunOnceActivity.git.unshallow&quot;: &quot;true&quot;,
     &quot;git-widget-placeholder&quot;: &quot;master&quot;,
@@ -121,7 +126,15 @@
       <option name="project" value="LOCAL" />
       <updated>1743917326443</updated>
     </task>
-    <option name="localTasksCounter" value="7" />
+    <task id="LOCAL-00007" summary="c">
+      <option name="closed" value="true" />
+      <created>1743953231308</created>
+      <option name="number" value="00007" />
+      <option name="presentableId" value="LOCAL-00007" />
+      <option name="project" value="LOCAL" />
+      <updated>1743953231308</updated>
+    </task>
+    <option name="localTasksCounter" value="8" />
     <servers />
   </component>
   <component name="VcsManagerConfiguration">

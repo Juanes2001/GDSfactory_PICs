@@ -40,7 +40,7 @@ import functions as fun
 
 #############################################################################
 
-# # Define `n` and `spiral_length` values to test multiple configurations
+# Define `n` and `spiral_length` values to test multiple configurations
 # n_values = [3, 2, 4, 4, 4]  # Number of loops in each spiral
 # spiral_lengths = [1000, 4000, 5000, 6000, 7000]  # Different snake lengths
 #
@@ -62,30 +62,148 @@ def main():
     places the multiple directional couplers within it.
     """
     # Root chip component with a custom name
-    chip = gf.Component(name="DirectionalCouplersUnal_Design_Demo")
+    chip = gf.Component(name="StructuresUnal_Design_Demo")
 
-    # Variables for positioning
-    y_position = 0
-    spacing = 500  # vertical spacing between structures
+    spacing = 500
 
-    # Define a helper function to add each structure to the chip
-    def add_structure(structure, name="Unnamed Structure"):
-        nonlocal y_position
-        ref = chip.add_ref(structure)
-        ref.move((0, y_position))
-        print(f"✅ Placed {name} at y = {y_position}")
-        y_position += structure.size_info.height + spacing
+    # Variables for spirals 1 , create six spirals with 2 bends and different lengths
+    x_in_position = 0
+    y_in_position = 0
+    width_up = 3.0
+    width_down = 0.8
+    y_offset = 300
+    spiral_array = [2,2,2,2,2,2]
+    lengths_array = [1000,2000,3000,4000,5000,6000]
 
-    # Create and add the 50:50 couplers with S-Bends
-    dc_50_50 = fun.multiple_directional_Couplers_50_to_50_with_SBend()
-    add_structure(dc_50_50, "DC 50:50 with S-Bend")
+
+
+    spirals1 = fun.spiral_with_taper_and_snake(spiral_array,
+                                              lengths_array,
+                                              width_up,
+                                              width_down,
+                                              y_offset,
+                                              x_in_position,
+                                              y_in_position)
+    chip.add_ref(spirals1[0])
+
+    # Variables for spirals 2 , create three spirals with 2 bends and different lengths
+    x_in_position = spirals1[1]
+    y_in_position = spirals1[2] + spacing
+    width_up = 3.0
+    width_down = 0.8
+    y_offset = 300
+    spiral_array = [2, 4, 6]
+    lengths_array = [3000, 3000, 3000]
+
+
+    spirals2 = fun.spiral_with_taper_and_snake(spiral_array,
+                                              lengths_array,
+                                              width_up,
+                                              width_down,
+                                              y_offset,
+                                              x_in_position,
+                                              y_in_position)
+
+    chip.add_ref(spirals2[0])
+
+
+    #Variables for the DC 50:50 at 780nm wavelenght
+    num_of_couplers = 3
+    initial_pos_x = spirals2[1]
+    initial_pos_y = spirals2[2]
+    y_offset = 300
+    coupler_width = 0.8
+    gap = 1
+    inner_s_bend_x = 10
+    inner_s_bend_y = 4
+    outter_s_bend_x = 50
+    outter_s_bend_y = 30                    # S-Bend (width, height)
+    laser_lambda  = 0.78
+    n1 = 1.55
+    n2 = 1.54
+
+    dc_50_50 = fun.multiple_directional_Couplers_50_to_50_with_SBend(num_of_couplers,
+                                                                      initial_pos_x,
+                                                                      initial_pos_y,
+                                                                      y_offset,
+                                                                      coupler_width,
+                                                                      gap,
+                                                                      inner_s_bend_x,
+                                                                      inner_s_bend_y,
+                                                                      outter_s_bend_x,
+                                                                      outter_s_bend_y,  # S-Bend (width, height)
+                                                                      laser_lambda,
+                                                                      n1,
+                                                                      n2)
+    chip.add_ref(dc_50_50[0])
+
+    # Variables for the DC 25:75 at 780nm wavelenght
+    num_of_couplers = 3
+    initial_pos_x = dc_50_50[1]
+    initial_pos_y = dc_50_50[2]
+    y_offset = 300
+    coupler_width = 0.8
+    gap = 1
+    inner_s_bend_x = 10
+    inner_s_bend_y = 4
+    outter_s_bend_x = 50
+    outter_s_bend_y = 30  # S-Bend (width, height)
+    laser_lambda = 0.78
+    n1 = 1.55
+    n2 = 1.54
+
+    dc_25_75 = fun.multiple_directional_Couplers_25_to_75_with_SBend(num_of_couplers,
+                                                                     initial_pos_x,
+                                                                     initial_pos_y,
+                                                                     y_offset,
+                                                                     coupler_width,
+                                                                     gap,
+                                                                     inner_s_bend_x,
+                                                                     inner_s_bend_y,
+                                                                     outter_s_bend_x,
+                                                                     outter_s_bend_y,  # S-Bend (width, height)
+                                                                     laser_lambda,
+                                                                     n1,
+                                                                     n2)
+    chip.add_ref(dc_25_75[0])
+
+    # Variables for the DC 0:100 at 780nm wavelenght
+    num_of_couplers = 3
+    initial_pos_x = dc_25_75[1]
+    initial_pos_y = dc_25_75[2]
+    y_offset = 300
+    coupler_width = 0.8
+    gap = 1
+    inner_s_bend_x = 10
+    inner_s_bend_y = 4
+    outter_s_bend_x = 50
+    outter_s_bend_y = 30  # S-Bend (width, height)
+    laser_lambda = 0.78
+    n1 = 1.55
+    n2 = 1.54
+
+    dc_0_100 = fun.multiple_directional_Couplers_0_to_100_with_SBend(num_of_couplers,
+                                                                     initial_pos_x,
+                                                                     initial_pos_y,
+                                                                     y_offset,
+                                                                     coupler_width,
+                                                                     gap,
+                                                                     inner_s_bend_x,
+                                                                     inner_s_bend_y,
+                                                                     outter_s_bend_x,
+                                                                     outter_s_bend_y,  # S-Bend (width, height)
+                                                                     laser_lambda,
+                                                                     n1,
+                                                                     n2)
+    chip.add_ref(dc_0_100[0])
 
 
     # Show a preview if you're in a Jupyter environment that supports it
     chip.plot()
+    chip.pprint_ports()
 
     # Write out the final GDS file
-    gds_filename = "my_dcouplers_design.gds"
+    gds_filename = "my_dcouplers_and_spirals_design_Juanes.gds"
     chip.write_gds(gds_filename)
     chip.show()
     print(f"✅ GDS file saved as: {gds_filename}")
