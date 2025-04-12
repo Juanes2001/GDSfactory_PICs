@@ -5,10 +5,11 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="92cc6d94-06f9-4a89-8657-29131f7ab573" name="Changes" comment="c">
+      <change afterPath="$PROJECT_DIR$/src/Code_for_design.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/GDSfactory_PICs.iml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/GDSfactory_PICs.iml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/misc.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/misc.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/build/gds/GDS_designs.oas" beforeDir="false" afterPath="$PROJECT_DIR$/build/gds/GDS_designs.oas" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/GDS_designs.py" beforeDir="false" afterPath="$PROJECT_DIR$/src/GDS_designs.py" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/functions.py" beforeDir="false" afterPath="$PROJECT_DIR$/src/functions.py" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -25,21 +26,18 @@
   <component name="Git.Settings">
     <option name="RECENT_GIT_ROOT_PATH" value="$PROJECT_DIR$" />
   </component>
-  <component name="GitHubPullRequestSearchHistory">{
-  &quot;lastFilter&quot;: {
-    &quot;state&quot;: &quot;OPEN&quot;,
-    &quot;assignee&quot;: &quot;Juanes2001&quot;
+  <component name="GitHubPullRequestSearchHistory"><![CDATA[{
+  "lastFilter": {
+    "state": "OPEN",
+    "assignee": "Juanes2001"
   }
-}</component>
-  <component name="GithubPullRequestsUISettings">{
-  &quot;selectedUrlAndAccountId&quot;: {
-    &quot;url&quot;: &quot;https://github.com/Juanes2001/GDSfactory_PICs.git&quot;,
-    &quot;accountId&quot;: &quot;efaac340-3865-4255-bdd5-1702ea4724b9&quot;
+}]]></component>
+  <component name="GithubPullRequestsUISettings"><![CDATA[{
+  "selectedUrlAndAccountId": {
+    "url": "https://github.com/Juanes2001/GDSfactory_PICs.git",
+    "accountId": "1902aa05-89b4-4eac-bcf4-4f6fbbff742b"
   }
-}</component>
-  <component name="ProblemsViewState">
-    <option name="selectedTabId" value="CurrentFile" />
-  </component>
+}]]></component>
   <component name="ProjectColorInfo">{
   &quot;associatedIndex&quot;: 8
 }</component>
@@ -49,23 +47,21 @@
     <option name="hideEmptyMiddlePackages" value="true" />
     <option name="showLibraryContents" value="true" />
   </component>
-  <component name="PropertiesComponent">{
-  &quot;keyToString&quot;: {
-    &quot;Python.GDS_designs.executor&quot;: &quot;Run&quot;,
-    &quot;Python.functions.executor&quot;: &quot;Run&quot;,
-    &quot;Python.straight_waveguide.executor&quot;: &quot;Run&quot;,
-    &quot;Python.tapers.executor&quot;: &quot;Run&quot;,
-    &quot;Python.text.executor&quot;: &quot;Debug&quot;,
-    &quot;RunOnceActivity.ShowReadmeOnStart&quot;: &quot;true&quot;,
-    &quot;RunOnceActivity.git.unshallow&quot;: &quot;true&quot;,
-    &quot;git-widget-placeholder&quot;: &quot;master&quot;,
-    &quot;ignore.virus.scanning.warn.message&quot;: &quot;true&quot;
+  <component name="PropertiesComponent"><![CDATA[{
+  "keyToString": {
+    "Python.Code_for_design.executor": "Run",
+    "Python.GDS_designs.executor": "Run",
+    "Python.straight_waveguide.executor": "Run",
+    "Python.tapers.executor": "Run",
+    "RunOnceActivity.ShowReadmeOnStart": "true",
+    "RunOnceActivity.git.unshallow": "true",
+    "git-widget-placeholder": "master"
   }
-}</component>
+}]]></component>
   <component name="SharedIndexes">
     <attachedChunks>
       <set>
-        <option value="bundled-python-sdk-4f4e415b4190-aa17d162503b-com.jetbrains.pycharm.community.sharedIndexes.bundled-PC-243.26053.29" />
+        <option value="bundled-python-sdk-14705d77f0bb-aa17d162503b-com.jetbrains.pycharm.community.sharedIndexes.bundled-PC-243.25659.43" />
       </set>
     </attachedChunks>
   </component>
@@ -118,31 +114,7 @@
       <option name="project" value="LOCAL" />
       <updated>1743805010703</updated>
     </task>
-    <task id="LOCAL-00006" summary="c">
-      <option name="closed" value="true" />
-      <created>1743917326443</created>
-      <option name="number" value="00006" />
-      <option name="presentableId" value="LOCAL-00006" />
-      <option name="project" value="LOCAL" />
-      <updated>1743917326443</updated>
-    </task>
-    <task id="LOCAL-00007" summary="c">
-      <option name="closed" value="true" />
-      <created>1743953231308</created>
-      <option name="number" value="00007" />
-      <option name="presentableId" value="LOCAL-00007" />
-      <option name="project" value="LOCAL" />
-      <updated>1743953231308</updated>
-    </task>
-    <task id="LOCAL-00008" summary="c">
-      <option name="closed" value="true" />
-      <created>1743999687512</created>
-      <option name="number" value="00008" />
-      <option name="presentableId" value="LOCAL-00008" />
-      <option name="project" value="LOCAL" />
-      <updated>1743999687512</updated>
-    </task>
-    <option name="localTasksCounter" value="9" />
+    <option name="localTasksCounter" value="6" />
     <servers />
   </component>
   <component name="VcsManagerConfiguration">

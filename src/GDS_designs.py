@@ -112,15 +112,15 @@ def main():
     initial_pos_x = spirals2[1]
     initial_pos_y = spirals2[2]
     y_offset = 300
-    coupler_width = 0.8
-    gap = 1
+    coupler_width = 0.35
+    gap = 0.4
     inner_s_bend_x = 10
     inner_s_bend_y = 4
     outter_s_bend_x = 50
     outter_s_bend_y = 30                    # S-Bend (width, height)
     laser_lambda  = 0.78
-    n1 = 1.55
-    n2 = 1.54
+    n1 = 1.776611224
+    n2 = 1.776134225
 
     dc_50_50 = fun.multiple_directional_Couplers_50_to_50_with_SBend(num_of_couplers,
                                                                       initial_pos_x,
@@ -142,15 +142,15 @@ def main():
     initial_pos_x = dc_50_50[1]
     initial_pos_y = dc_50_50[2]
     y_offset = 300
-    coupler_width = 0.8
-    gap = 1
+    coupler_width = 0.35
+    gap = 0.4
     inner_s_bend_x = 10
     inner_s_bend_y = 4
     outter_s_bend_x = 50
     outter_s_bend_y = 30  # S-Bend (width, height)
     laser_lambda = 0.78
-    n1 = 1.55
-    n2 = 1.54
+    n1 = 1.776611224
+    n2 = 1.776134225
 
     dc_25_75 = fun.multiple_directional_Couplers_25_to_75_with_SBend(num_of_couplers,
                                                                      initial_pos_x,
@@ -172,15 +172,15 @@ def main():
     initial_pos_x = dc_25_75[1]
     initial_pos_y = dc_25_75[2]
     y_offset = 300
-    coupler_width = 0.8
-    gap = 1
+    coupler_width = 0.35
+    gap = 0.4
     inner_s_bend_x = 10
     inner_s_bend_y = 4
     outter_s_bend_x = 50
     outter_s_bend_y = 30  # S-Bend (width, height)
     laser_lambda = 0.78
-    n1 = 1.55
-    n2 = 1.54
+    n1 = 1.776611224
+    n2 = 1.776134225
 
     dc_0_100 = fun.multiple_directional_Couplers_0_to_100_with_SBend(num_of_couplers,
                                                                      initial_pos_x,
