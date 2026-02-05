@@ -1,6 +1,7 @@
 import gdsfactory  as gf
 import functions as fun
 
+
 # Create the main component
 # c = gf.Component()
 #
@@ -61,6 +62,8 @@ def main():
     Main function that creates a 'root' chip component and
     places the multiple directional couplers within it.
     """
+    gf.gpdk.PDK.activate()
+
     # Root chip component with a custom name
     chip = gf.Component(name="StructuresUnal_Design_Demo")
 
@@ -212,6 +215,5 @@ def main():
 # If running as a standalone script (e.g. python script.py):
 if __name__ == "__main__":
     main()
-
 
 
